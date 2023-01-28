@@ -41,7 +41,7 @@ function calculateAll() {
   // ITERATION 3
   //... your code goes here
   let priceTotal = document.querySelector("#total-value span");
-  console.log(priceTotal);
+  //console.log(priceTotal);
 
   let counter = 0;
   allProduct.forEach((product) => {
@@ -54,9 +54,20 @@ function calculateAll() {
 
 // ITERATION 4
 
+// let removeBtn = document.querySelectorAll(".btn-remove");
+
+// removeBtn.forEach((removeBtn) => {
+//   removeBtn.addEventListener("click", removeProduct);
+// });
+
 function removeProduct(event) {
   const target = event.currentTarget;
-  console.log("The target in remove is:", target);
+  target.closest("tr").remove();
+  //console.log(target.closest('tr'));
+
+  calculateAll();
+
+  //  console.log("The target in remove is:", target);
   //... your code goes here
 }
 
@@ -64,6 +75,9 @@ function removeProduct(event) {
 
 function createProduct() {
   //... your code goes here
+  const createProduct = document.getElementById("create");
+  console.log(createProduct);
+  createProduct.addEventListener("click", (createProduct) => {});
 }
 
 window.addEventListener("load", () => {
@@ -71,4 +85,12 @@ window.addEventListener("load", () => {
   calculatePricesBtn.addEventListener("click", calculateAll);
 
   //... your code goes here
+  let removeBtn = document.querySelectorAll(".btn-remove");
+  removeBtn.forEach((btn) => {
+    btn.addEventListener("click", removeProduct);
+
+    //   let removeBtn1 = document.querySelector('.btn-remove');
+    //   removeBtn1.addEventListener("click",removeProduct);
+  });
+  createProduct();
 });
